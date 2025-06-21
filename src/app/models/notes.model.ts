@@ -1,7 +1,7 @@
-import mongoose, { mongo, Schema } from "mongoose";
-import { Note } from "../interfaces/note.interface";
+import mongoose, { model, Schema } from "mongoose";
+import { INote } from "../interfaces/note.interface";
 
-const notSchema = new Schema<Note>({
+const notSchema = new Schema<INote>({
   title: {
     type: String,
     required: true,
@@ -23,5 +23,12 @@ const notSchema = new Schema<Note>({
     ref:"User",
     required:true
 
+  },
+  color:{
+    type:String,
+    default:"gray"
   }
 });
+
+
+export const Note = model ("Note" , notSchema)

@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-export interface Note {
+export interface INote {
   title:string ,
   headline:string,
   description:string ,

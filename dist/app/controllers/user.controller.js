@@ -12,34 +12,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.noteRouter = void 0;
+exports.userRouter = void 0;
 const express_1 = __importDefault(require("express"));
-const notes_model_1 = require("../models/notes.model");
-exports.noteRouter = express_1.default.Router();
-exports.noteRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const user_model_1 = require("../models/user.model");
+exports.userRouter = express_1.default.Router();
+exports.userRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const noteBody = req.body;
-        const newNote = yield notes_model_1.Note.create(noteBody);
+        const user = req.body;
+        const newUser = yield user_model_1.User.create(user);
         res.status(201).json({
             status: true,
-            message: "Note created success",
-            newNote,
-        });
-    }
-    catch (error) {
-        res.status(500).json({
-            status: false,
-            Error: error,
-        });
-    }
-}));
-exports.noteRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const note = yield notes_model_1.Note.find().populate("user");
-        res.status(200).json({
-            status: true,
-            message: "Note fetch success",
-            note,
+            message: "User created success",
+            newUser,
         });
     }
     catch (error) {

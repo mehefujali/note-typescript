@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import { User } from "../models/user.model";
 
-const userRouter = express.Router();
+export const userRouter = express.Router();
 
 userRouter.post("/", async (req: Request, res: Response) => {
   try {
@@ -19,3 +19,5 @@ userRouter.post("/", async (req: Request, res: Response) => {
     });
   }
 });
+
+
